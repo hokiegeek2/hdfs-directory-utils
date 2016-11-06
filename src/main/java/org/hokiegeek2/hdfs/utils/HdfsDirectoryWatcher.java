@@ -13,7 +13,7 @@ import org.apache.hadoop.hdfs.inotify.MissingEventsException;
 public class HdfsDirectoryWatcher {
 	public static void main( String[] args ) throws IOException, InterruptedException, MissingEventsException
 	{
-	    HdfsAdmin admin = new HdfsAdmin( URI.create("localhost:9000"), new Configuration() );
+	    HdfsAdmin admin = new HdfsAdmin( URI.create(args[0]), new Configuration() );
 	    DFSInotifyEventInputStream eventStream = admin.getInotifyEventStream();
 	    while( true ) {
 	        Event event = eventStream.poll();
